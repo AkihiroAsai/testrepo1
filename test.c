@@ -34,7 +34,8 @@ int main(void)
 	STest *p_test = getMem(4096);
 	if(p_test)
 	{
-		printf("!\n");
+		p_test->it1 = 1;
+		printf("! %u\n", p_test->it1);
 	}
 	else
 	{
