@@ -1,12 +1,9 @@
 #include <stdio.h>
 
-static int sum(int x, int y)
-{
-	return(x + y);
-}
+#define SUM(x,y)	x+y
 
 int main(void)
 {
-	printf("Hello!\n");
-	return sum(10, 2);
+	printf("sum:%d\n", SUM(10, 2));
+	return 0;
 }
