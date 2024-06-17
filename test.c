@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <malloc.h>
 
+#define MAX 0x8000
+
 typedef struct {
 	int it1;
 	int it2;
@@ -10,9 +12,13 @@ typedef struct {
 
 STest *getMem(int counts)
 {
-	unsigned short size = sizeof(STest) * counts;
+	unsigned short size;
 	STest *p_test;
-	if(size > 0x8000)
+	
+	size = sizeof(STest) * counts;
+		printf("size:%u\n", size);
+
+	if(size > MAX)
 	{
 		p_test = NULL;
 	}
