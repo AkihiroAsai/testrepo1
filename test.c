@@ -4,6 +4,6 @@
 
 int main(void)
 {
-	printf("sum:%d\n", SUM(10, 2));
+	printf("sum:%d\n", SUM(SUM(2,6), 2));
 	return 0;
 }
