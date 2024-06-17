@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define SUM(x,y)	x+y
+#define SUM(x,y)	x+y		//CodeQL:not detect
 
 int main(void)
 {
