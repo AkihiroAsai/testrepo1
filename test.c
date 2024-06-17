@@ -1,30 +1,38 @@
 #include <stdio.h>
+#include <malloc.h>
 
 typedef struct {
-	unsigned short head;
-	unsigned char mid;
-	unsigned char tail;
+	int it1;
+	int it2;
+	int it3;
+	int it4;
 } STest;
 
-static STest S_test[2];
+STest *getMem(int counts)
+{
+	unsigned short size = sizeof(STest) * counts;
+	STest *p_test;
+	if(size > 0x8000)
+	{
+		p_test = NULL;
+	}
+	else
+	{
+		p_test = malloc(size);
+	}
+	return(p_test);
+}
 
 int main(void)
 {
-	unsigned char *p_test = (unsigned char *)&S_test;
-	S_test[0].head = 12345;
-	S_test[0].mid = 6;
-	S_test[0].tail = 78;
-	S_test[1].head = 222;
-	S_test[1].mid = 33;
-	S_test[1].tail = 44;
-
-	for (int i=0; i<8; i++)
+	STest *p_test = getMem(4096);
+	if(p_test)
 	{
-		*(p_test + i) = i;
+		printf("!\n");
 	}
-	for (int i=0; i<2; i++)
+	else
 	{
-		printf("%u %u %u\n", S_test[i].head, S_test[i].mid, S_test[i].tail);
+		printf("NG\n");
 	}
 	return 0;
 }
