@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 void printWrapper(char *string) {
 
@@ -13,15 +14,8 @@ printWrapper(argv[1]);
 return (0);
 }
 
-void host_lookup(char *user_supplied_addr){
-struct hostent *hp;
-in_addr_t *addr;
-char hostname[64];
-in_addr_t inet_addr(const char *cp);
-
-/*routine that ensures user_supplied_addr is in the right format for conversion */
-validate_addr_form(user_supplied_addr);
-addr = inet_addr(user_supplied_addr);
-hp = gethostbyaddr( addr, sizeof(struct in_addr), AF_INET);
-strcpy(hostname, hp->h_name);
+int main_1(int argc, char **argv) {
+char *items[] = {"boat", "car", "truck", "train"};
+int index = argv[1];
+printf("You selected %s¥n", items[index-1]);
 }
